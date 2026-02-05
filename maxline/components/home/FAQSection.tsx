@@ -107,7 +107,7 @@ export default function FAQSection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.05 }}
-                                    className={`rounded-3xl border transition-all duration-300 ${openIndex === index
+                                    className={`rounded-3xl border transition-[background-color,border-color,box-shadow] duration-300 ${openIndex === index
                                         ? "bg-blue-50 border-blue-200 shadow-md"
                                         : "bg-gray-50/50 border-gray-100 hover:border-blue-100"
                                         }`}
