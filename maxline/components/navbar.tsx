@@ -6,14 +6,12 @@ import {
   NavbarBrand,
   NavbarItem,
   NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-} from "@heroui/navbar";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
-import { Popover, PopoverTrigger, PopoverContent } from "@heroui/popover";
-import { Select, SelectItem } from "@heroui/select";
-import { ChevronDown, ChevronRight, LanguagesIcon, Box, Users, Newspaper, Briefcase } from "lucide-react";
+} from "@heroui/react";
+import { Button } from "@heroui/react";
+import { Link } from "@heroui/react";
+import { Popover, PopoverTrigger, PopoverContent } from "@heroui/react";
+import { Select, SelectItem } from "@heroui/react";
+import { ChevronDown, ChevronRight, Languages, Box, Users } from "lucide-react";
 import NextLink from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
@@ -70,7 +68,7 @@ export const Navbar = () => {
             size="sm"
             defaultSelectedKeys={["en"]}
             variant="flat"
-            startContent={<LanguagesIcon size={16} />}
+            startContent={<Languages size={16} />}
           >
             <SelectItem key="en">English</SelectItem>
             <SelectItem key="ar">Arabic</SelectItem>
@@ -91,38 +89,43 @@ export const Navbar = () => {
   );
 };
 
+
 // --- Sub-components for Dropdowns ---
 
-const CompanyMenu = () => (
-  <div className="w-[300px] p-4 flex flex-col gap-2">
-    {siteConfig.companyMenu.map((item) => (
-      <Link key={item.label} href={item.href} className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all">
-        <div className="mt-1 p-2 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 text-blue-400">
-          {item.label.includes("About") ? <Box size={18} /> : <Users size={18} />}
-        </div>
-        <div>
-          <p className="text-white font-medium text-sm">{item.label}</p>
-          <p className="text-gray-500 text-xs mt-1 leading-tight">{item.description}</p>
-        </div>
-      </Link>
-    ))}
-  </div>
-);
-
-const ServicesMenu = () => (
-  <div className="w-[450px] p-6 grid grid-cols-2 gap-4">
-    {siteConfig.servicesMenu.map((item) => (
-      <Link key={item.label} href={item.href} className="flex flex-col p-3 rounded-xl hover:bg-white/5 transition-all group">
-        <span className="text-white group-hover:text-blue-400 text-sm font-semibold transition-colors">
-          {item.label}
-        </span>
-        <span className="text-gray-500 text-xs">Standard Freight & Logistics</span>
-      </Link>
-    ))}
-    <div className="col-span-2 mt-2 pt-4 border-t border-white/5">
-      <Button size="sm" variant="light" color="primary" className="w-full justify-between">
-        View All Specialized Services <ChevronRight size={16} />
-      </Button>
+function CompanyMenu() {
+  return (
+    <div className="w-[300px] p-4 flex flex-col gap-2">
+      {siteConfig.companyMenu.map((item) => (
+        <Link key={item.label} href={item.href} className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all">
+          <div className="mt-1 p-2 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 text-blue-400">
+            {item.label.includes("About") ? <Box size={18} /> : <Users size={18} />}
+          </div>
+          <div>
+            <p className="text-white font-medium text-sm">{item.label}</p>
+            <p className="text-gray-500 text-xs mt-1 leading-tight">{item.description}</p>
+          </div>
+        </Link>
+      ))}
     </div>
-  </div>
-);
+  );
+}
+
+function ServicesMenu() {
+  return (
+    <div className="w-[450px] p-6 grid grid-cols-2 gap-4">
+      {siteConfig.servicesMenu.map((item) => (
+        <Link key={item.label} href={item.href} className="flex flex-col p-3 rounded-xl hover:bg-white/5 transition-all group">
+          <span className="text-white group-hover:text-blue-400 text-sm font-semibold transition-colors">
+            {item.label}
+          </span>
+          <span className="text-gray-500 text-xs">Standard Freight & Logistics</span>
+        </Link>
+      ))}
+      <div className="col-span-2 mt-2 pt-4 border-t border-white/5">
+        <Button size="sm" variant="light" color="primary" className="w-full justify-between">
+          View All Specialized Services <ChevronRight size={16} />
+        </Button>
+      </div>
+    </div>
+  );
+}

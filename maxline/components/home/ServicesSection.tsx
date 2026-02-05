@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, Plane, Ship, Truck } from "lucide-react";
-import { Button } from "@heroui/button";
+import { Button } from "@heroui/react";
 
 export default function ServicesSection() {
     const [activeTab, setActiveTab] = useState(0);
