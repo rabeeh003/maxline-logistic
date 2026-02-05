@@ -40,7 +40,8 @@ export default function HeroSection() {
     return (
         <section
             ref={containerRef}
-            className="relative md:min-h-[90vh] flex flex-col items-center justify-center gap-8 pb-50 md:pb-10 pt-50 overflow-hidden
+            style={{ paddingTop: '50px' }}
+            className="relative md:min-h-[120vh] flex flex-col items-center justify-center gap-8 pb-50 md:pb-10 pt-100 overflow-hidden
       md:bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.18),transparent_55%)]
       before:absolute before:inset-0 md:before:bg-gradient-to-b md:before:from-white/5 md:before:to-transparent before:pointer-events-none"
         >
@@ -55,7 +56,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="inline-block max-w-2xl text-center justify-center z-20 px-4"
+                className="inline-block max-w-2xl text-center justify-center z-20 px-4 pt-50"
             >
                 <h1 className={title({ size: "lg" })}>
                     Your Trusted Partner in

@@ -42,7 +42,7 @@ export default function CertificationsSection() {
                         Certified for Excellence <br />in <span className="text-blue-500">Global Logistics</span>
                     </h2>
                     <p className="mt-4 text-gray-400 max-w-3xl mx-auto leading-relaxed text-lg">
-                        Maxline Global's certifications demonstrate our commitment to safe, efficient, and compliant logistics.
+                        Maxline Global&apos;s certifications demonstrate our commitment to safe, efficient, and compliant logistics.
                     </p>
                 </motion.div>
 

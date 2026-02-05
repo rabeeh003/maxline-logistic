@@ -75,7 +75,7 @@ export const Navbar = () => {
           </Select>
           <ThemeSwitch />
           <Button
-            as={Link}
+            as={NextLink}
             className="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-full px-6 shadow-lg shadow-blue-600/20"
             href="/quote"
             endContent={<ChevronRight size={18} />}
