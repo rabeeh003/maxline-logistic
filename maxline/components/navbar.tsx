@@ -24,7 +24,7 @@ export const Navbar = () => {
     <HeroUINavbar
       maxWidth="xl"
       isBlurred={false}
-      className="fixed bg-gradiant-to-b from-white dark:from-black to-transparent"
+      className="fixed bg-gradient-to-b from-white dark:from-black to-transparent"
     >
       <NavbarContent justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">

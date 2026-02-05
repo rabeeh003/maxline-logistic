@@ -1,13 +1,6 @@
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-
 import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import HeroSection from "@/components/home/HeroSection";
-import HeroSectiond from "@/components/home/HeroSectiond";
+// import HeroSectiond from "@/components/home/HeroSectiond";
 import ServicesSection from "@/components/home/ServicesSection";
 import ShowcaseVideoSection from "@/components/home/ShowcaseVideoSection";
 import ShowcaseVideoSectionMobail from "@/components/home/ShowcaseVideoSectionMobail";
