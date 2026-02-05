@@ -1,61 +1,5 @@
 "use client";
 
-// import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-// import { useRef } from "react";
-
-// export default function ShowcaseVideoSection() {
-//     const ref = useRef(null);
-
-//     // same parallax system as hero + services
-//     const { scrollYProgress } = useScroll({
-//         target: ref,
-//         offset: ["start end", "end start"],
-//     });
-
-//     const smooth = useSpring(scrollYProgress, {
-//         stiffness: 80,
-//         damping: 25,
-//     });
-
-//     const yText = useTransform(smooth, [0, 1], [80, -80]);
-//     const yVideo = useTransform(smooth, [0, 1], [120, -120]);
-//     const scaleVideo = useTransform(smooth, [0, 1], [0.9, 1.05]);
-//     const opacity = useTransform(smooth, [0, 0.3], [0, 1]);
-
-//     return (
-//         <section
-//             ref={ref}
-//             className="relative py-32 overflow-hidden"
-//         >
-//             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-blue-500/20 blur-[160px] rounded-full pointer-events-none" />
-
-//             <div className="max-w-6xl mx-auto px-6 text-center">
-
-//                 <motion.div style={{ y: yText, opacity }} className="mb-16">
-//                     <p className="text-blue-500 font-semibold mb-4">
-//                         Experience Maxline
-//                     </p>
-
-//                     <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-//                         Logistics in motion
-//                     </h2>
-
-//                     <p className="text-gray-500 mt-6 max-w-2xl mx-auto">
-//                         Watch how we move cargo across air, sea and road with precision,
-//                         speed and global coordination.
-//                     </p>
-//                 </motion.div>
-
-
-//             </div>
-
-//             <div className="mx-auto mt-10 w-[60%] h-[30px] bg-blue-500/20 blur-[60px] rounded-full" />
-//         </div>
-//         </section >
-//     );
-// }
-
-
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
@@ -69,8 +13,9 @@ export default function ShowcaseVideoSection() {
     });
 
     const smooth = useSpring(scrollYProgress, {
-        stiffness: 80,
-        damping: 25,
+        stiffness: 50,
+        damping: 20,
+        restDelta: 0.001
     });
 
     // 🎥 Cinematic transforms
