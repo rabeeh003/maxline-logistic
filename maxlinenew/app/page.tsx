@@ -7,13 +7,14 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import HeroSection from "@/components/home/HeroSection";
+import ServicesSection from "@/components/home/ServiceSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <ServicesSection />
-      <ShowcaseVideoSectionMobail />
+      <ServicesSection />
+      {/* <ShowcaseVideoSectionMobail />
       <FreightServicesSection />
       <ShowcaseVideoSection />
       <FAQSection />
