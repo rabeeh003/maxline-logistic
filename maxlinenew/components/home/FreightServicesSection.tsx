@@ -28,21 +28,21 @@ export default function FreightServicesSection() {
         {
             title: "Land Freight",
             desc: "Efficient land freight across the GCC—FTL, LTL, and oversized cargo.",
-            img: "https://maxlineglobal.com/_next/image?url=%2Fimages%2Ftruck.webp&w=828&q=85",
+            img: "/homeimages/truck.png",
             bgColor: "bg-[#FF5A5F]", // Vibrant Rose/Red
             textColor: "text-white",
         },
         {
             title: "Air Freight",
             desc: "Swift air freight solutions for global reach and time-critical shipments.",
-            img: "https://maxlineglobal.com/_next/image?url=%2Fimages%2Fplane.webp&w=828&q=85",
+            img: "/homeimages/plaine.png",
             bgColor: "bg-[#00D084]", // Green
             textColor: "text-white",
         },
         {
             title: "Sea Freight",
             desc: "Reliable sea freight services across continents with flexible solutions.",
-            img: "https://maxlineglobal.com/_next/image?url=%2Fimages%2Fship.webp&w=828&q=85",
+            img: "/homeimages/ship.png",
             bgColor: "bg-[#0070F3]", // Blue
             textColor: "text-white",
         },
