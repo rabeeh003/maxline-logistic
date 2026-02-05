@@ -1,69 +1,26 @@
-export type SiteConfig = typeof siteConfig;
-
+// config/site.ts
 export const siteConfig = {
-  name: "Next.js + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Maxline Global",
+  description: "Global Logistic Solutions",
   navItems: [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    },
+    { label: "Home", href: "/" },
+    { label: "Company", isDropdown: true },
+    { label: "Services", isDropdown: true },
+    { label: "Track Shipment", href: "/track" },
+    { label: "Contact", href: "/contact" },
   ],
-  navMenuItems: [
-    {
-      label: "Profile",
-      href: "/profile",
-    },
-    {
-      label: "Dashboard",
-      href: "/dashboard",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
+  companyMenu: [
+    { label: "About Us", href: "/about", description: "Learn about our journey and values." },
+    { label: "Leadership Team", href: "/team", description: "Meet the experts behind our success." },
+    { label: "Insights & News", href: "/blog", description: "Latest industry updates and trends." },
+    { label: "Careers", href: "/careers", description: "Join our global logistics family." },
   ],
-  links: {
-    github: "https://github.com/heroui-inc/heroui",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
-  },
+  servicesMenu: [
+    { label: "Air Freight", href: "/services/air" },
+    { label: "Land Freight", href: "/services/land" },
+    { label: "Sea Freight", href: "/services/sea" },
+    { label: "Project Cargo", href: "/services/project" },
+    { label: "Warehousing", href: "/services/warehousing" },
+    { label: "Moving & Lashing", href: "/services/moving" },
+  ]
 };

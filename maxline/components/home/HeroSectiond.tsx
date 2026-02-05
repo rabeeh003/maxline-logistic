@@ -54,14 +54,14 @@ export default function HeroSectiond() {
                     <Link
                         isExternal
                         className={buttonStyles({ color: "primary", radius: "full", variant: "shadow", size: "lg" })}
-                        href={siteConfig.links.docs}
+                        href="/"
                     >
                         Get Started
                     </Link>
                     <Link
                         isExternal
                         className={buttonStyles({ variant: "bordered", radius: "full", size: "lg", color: "success" })}
-                        href={siteConfig.links.github}
+                        href='/'
                     >
                         <Phone size={22} className="text-green-500" />
                         <span className="text-white">Whatsapp</span>

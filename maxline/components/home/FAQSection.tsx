@@ -59,7 +59,7 @@ export default function FAQSection() {
         <section ref={containerRef} className="relative w-full md:min-h-screen py-24">
             {/* Cinematic Glow */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-10 right-0 w-[600px] h-[600px] bg-blue-400/40 blur-[120px] rounded-full" />
+                <div className="absolute top-70 md:top-10 right-0 w-[600px] h-[600px] bg-blue-400/40 blur-[120px] rounded-full" />
                 <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-blue-600/30 blur-[100px] rounded-full" />
             </div>
 

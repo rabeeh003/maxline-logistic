@@ -36,13 +36,17 @@ const footerLinks = {
 
 export default function Footer() {
     return (
-        <footer className="bg-black text-gray-400 pt-20 pb-10 border-t border-white/5">
+        <footer className="relative text-foreground/80 pt-20 pb-10 border-t border-white/5">
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-70 md:top-10 right-0 w-[600px] h-[600px] bg-blue-400/40 blur-[120px] rounded-full" />
+                <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-blue-600/30 blur-[100px] rounded-full" />
+            </div>
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Top Section: Branding & CTA */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16">
                     <div>
-                        <h2 className="text-3xl font-bold text-white mb-2">Maxline Global</h2>
+                        <h2 className="text-3xl font-bold text-foreground mb-2">Maxline Global</h2>
                         <div className="flex items-center gap-2 text-sm">
                             <MapPin size={16} className="text-blue-500" />
                             <span>Jebel Ali Free Zone, Dubai</span>
@@ -65,7 +69,7 @@ export default function Footer() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
                     {/* General */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">General</h3>
+                        <h3 className="text-foreground font-semibold mb-6">General</h3>
                         <ul className="space-y-4 text-sm">
                             {footerLinks.general.map((link) => (
                                 <li key={link.name}>
@@ -79,7 +83,7 @@ export default function Footer() {
 
                     {/* Services */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">Services</h3>
+                        <h3 className="text-foreground font-semibold mb-6">Services</h3>
                         <ul className="space-y-4 text-sm">
                             {footerLinks.services.map((link) => (
                                 <li key={link.name}>
@@ -93,7 +97,7 @@ export default function Footer() {
 
                     {/* Support */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">Support</h3>
+                        <h3 className="text-foreground font-semibold mb-6">Support</h3>
                         <ul className="space-y-4 text-sm">
                             {footerLinks.support.map((link) => (
                                 <li key={link.name}>
@@ -107,7 +111,7 @@ export default function Footer() {
 
                     {/* Socials */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">Follow Us</h3>
+                        <h3 className="text-foreground font-semibold mb-6">Follow Us</h3>
                         <div className="flex flex-col gap-4">
                             {footerLinks.socials.map((social) => (
                                 <Link

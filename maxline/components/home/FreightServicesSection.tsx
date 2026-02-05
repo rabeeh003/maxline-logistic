@@ -15,8 +15,8 @@ export default function FreightServicesSection() {
 
     // Smooth scroll values
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
+        stiffness: 50,
+        damping: 20,
         restDelta: 0.001,
     });
 

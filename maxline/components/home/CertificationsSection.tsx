@@ -21,7 +21,7 @@ export default function CertificationsSection() {
         offset: ["start end", "end start"],
     });
     const yLogos = useTransform(scrollYProgress, [0, 1], [50, -30]);
-    const smoothY = useSpring(yLogos, { stiffness: 100, damping: 30, restDelta: 0.001 });
+    const smoothY = useSpring(yLogos, { stiffness: 50, damping: 20, restDelta: 0.001 });
 
     return (
         <section ref={containerRef} className="relative py-24 overflow-hidden">

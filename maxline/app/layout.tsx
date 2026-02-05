@@ -27,6 +27,8 @@ export const viewport: Viewport = {
   ],
 };
 
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+
 export default function RootLayout({
   children,
 }: {
@@ -42,12 +44,13 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-8xl flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
+          <SmoothScrollProvider>
+            <div className="relative flex flex-col min-h-screen">
+              <Navbar />
+              <main className="container mx-auto max-w-8xl flex-grow">
+                {children}
+              </main>
+              {/* <footer className="w-full flex items-center justify-center py-3">
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
@@ -57,8 +60,9 @@ export default function RootLayout({
                 <span className="text-default-600">Powered by</span>
                 <p className="text-primary">HeroUI</p>
               </Link>
-            </footer>
-          </div>
+            </footer> */}
+            </div>
+          </SmoothScrollProvider>
         </Providers>
       </body>
     </html>

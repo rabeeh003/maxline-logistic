@@ -77,7 +77,7 @@ export default function HeroSection() {
                             variant: "shadow",
                             size: "lg",
                         })}
-                        href={siteConfig.links.docs}
+                        href="/"
                     >
                         Get Started
                     </Link>
@@ -90,7 +90,7 @@ export default function HeroSection() {
                             size: "lg",
                             color: "primary",
                         })}
-                        href={siteConfig.links.github}
+                        href="/"
                     >
                         <LocateFixed size={22} className="text-primary" />
                         Track Your Shipment

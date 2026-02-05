@@ -1,168 +1,128 @@
 "use client";
+import React from "react";
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
   NavbarMenuItem,
 } from "@heroui/navbar";
 import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
-import { link as linkStyles } from "@heroui/theme";
+import { Popover, PopoverTrigger, PopoverContent } from "@heroui/popover";
+import { Select, SelectItem } from "@heroui/select";
+import { ChevronDown, ChevronRight, LanguagesIcon, Box, Users, Newspaper, Briefcase } from "lucide-react";
 import NextLink from "next/link";
-import clsx from "clsx";
-
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/components/icons";
-import { ChevronRight, LanguagesIcon } from "lucide-react";
-import { Select, SelectSection, SelectItem } from "@heroui/select";
-import Image from "next/image";
-
-const languages = [
-  { key: "en", label: "English" },
-  { key: "ar", label: "Arabic" },
-];
 
 export const Navbar = () => {
-  const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
-      endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
-      }
-      labelPlacement="outside"
-      placeholder="Search..."
-      startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-      }
-      type="search"
-    />
-  );
-
   return (
-    <HeroUINavbar maxWidth="xl" isBlurred={false} className="fixed bg-gradient-to-b from-background dark:from-background/60 to-transparent border-b-0">
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+    <HeroUINavbar
+      maxWidth="xl"
+      isBlurred={false}
+      className="fixed bg-gradiant-to-b from-white dark:from-black to-transparent"
+    >
+      <NavbarContent justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Image src="https://maxlineglobal.com/favicon.ico?63c3c9d72566a70f" alt="Logo" height={50} width={50} />
-            {/* <p className="font-bold text-inherit">ACME</p> */}
+            <Image
+              src="https://maxlineglobal.com/favicon.ico?63c3c9d72566a70f"
+              alt="Logo"
+              height={40}
+              width={40}
+              className="brightness-125 shadow-blue-500/50 drop-shadow-lg"
+            />
           </NextLink>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
-        justify="end"
-      >
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
-                color="foreground"
-                href={item.href}
-              >
+      <NavbarContent className="hidden lg:flex gap-8" justify="center">
+        {siteConfig.navItems.map((item) => (
+          <NavbarItem key={item.label}>
+            {item.isDropdown ? (
+              <Popover placement="bottom" offset={20} showArrow backdrop="blur">
+                <PopoverTrigger>
+                  <button className="flex items-center gap-1 text-foreground hover:text-blue-400 transition-colors font-medium">
+                    {item.label} <ChevronDown size={16} />
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="p-0 border border-white/10 bg-black/80 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl">
+                  {item.label === "Company" ? <CompanyMenu /> : <ServicesMenu />}
+                </PopoverContent>
+              </Popover>
+            ) : (
+              <NextLink className="text-foreground hover:text-blue-400 font-medium transition-colors" href={item.href || "#"}>
                 {item.label}
               </NextLink>
-            </NavbarItem>
-          ))}
-        </ul>
+            )}
+          </NavbarItem>
+        ))}
+      </NavbarContent>
 
-        {/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
-        <NavbarItem className="hidden md:flex">
-          <Button
-            className="text-sm min-w-0 px-2 mx-0 font-normal text-default-600 bg-default-100"
-            href="#"
-            variant="flat"
-          >
-            <ThemeSwitch />
-          </Button>
-        </NavbarItem>
-        <NavbarItem className="hidden md:flex">
-          {/* <Button
-            className="text-sm min-w-0 px-2 mx-0 font-normal text-default-600 bg-default-100"
-            href="#"
-            variant="flat"
-          >
-          </Button> */}
-          {/* <LanguageSelect /> */}
+      <NavbarContent justify="end" className="gap-4">
+        <div className="hidden md:flex gap-4 items-center">
           <Select
-            className="max-w-xs"
+            className="w-32"
+            size="sm"
             defaultSelectedKeys={["en"]}
-            placeholder="Select language"
-            startContent={<LanguagesIcon />}
+            variant="flat"
+            startContent={<LanguagesIcon size={16} />}
           >
-            {languages.map((language) => (
-              <SelectItem key={language.key}>{language.label}</SelectItem>
-            ))}
+            <SelectItem key="en">English</SelectItem>
+            <SelectItem key="ar">Arabic</SelectItem>
           </Select>
-        </NavbarItem>
-        <NavbarItem className="hidden md:flex">
+          <ThemeSwitch />
           <Button
-            isExternal
             as={Link}
-            className="text-sm font-normal"
-            href="#"
-            endContent={<ChevronRight className="text-white" />}
-            variant="shadow"
-            color="primary"
+            className="bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-full px-6 shadow-lg shadow-blue-600/20"
+            href="/quote"
+            endContent={<ChevronRight size={18} />}
           >
             Get a Quote
           </Button>
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
-        </Link>
-        <ThemeSwitch />
-        <NavbarMenuToggle />
-      </NavbarContent>
-
-      <NavbarMenu>
-        {searchInput}
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                href="#"
-                size="lg"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
         </div>
-      </NavbarMenu>
+        <NavbarMenuToggle className="lg:hidden" />
+      </NavbarContent>
     </HeroUINavbar>
   );
 };
+
+// --- Sub-components for Dropdowns ---
+
+const CompanyMenu = () => (
+  <div className="w-[300px] p-4 flex flex-col gap-2">
+    {siteConfig.companyMenu.map((item) => (
+      <Link key={item.label} href={item.href} className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-all">
+        <div className="mt-1 p-2 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 text-blue-400">
+          {item.label.includes("About") ? <Box size={18} /> : <Users size={18} />}
+        </div>
+        <div>
+          <p className="text-white font-medium text-sm">{item.label}</p>
+          <p className="text-gray-500 text-xs mt-1 leading-tight">{item.description}</p>
+        </div>
+      </Link>
+    ))}
+  </div>
+);
+
+const ServicesMenu = () => (
+  <div className="w-[450px] p-6 grid grid-cols-2 gap-4">
+    {siteConfig.servicesMenu.map((item) => (
+      <Link key={item.label} href={item.href} className="flex flex-col p-3 rounded-xl hover:bg-white/5 transition-all group">
+        <span className="text-white group-hover:text-blue-400 text-sm font-semibold transition-colors">
+          {item.label}
+        </span>
+        <span className="text-gray-500 text-xs">Standard Freight & Logistics</span>
+      </Link>
+    ))}
+    <div className="col-span-2 mt-2 pt-4 border-t border-white/5">
+      <Button size="sm" variant="light" color="primary" className="w-full justify-between">
+        View All Specialized Services <ChevronRight size={16} />
+      </Button>
+    </div>
+  </div>
+);

@@ -13,8 +13,9 @@ export default function ShowcaseVideoSectionMobail() {
     });
 
     const smooth = useSpring(scrollYProgress, {
-        stiffness: 80,
-        damping: 25,
+        stiffness: 50,
+        damping: 20,
+        restDelta: 0.001
     });
 
     const yText = useTransform(smooth, [0, 1], [80, -80]);
